@@ -78,7 +78,7 @@ pagina = st.sidebar.selectbox("Escolha uma opção:", ["Área do Motorista", "Á
 
 # ---------------------------- Área do Motorista ---------------------------- #
 if pagina == "Área do Motorista":
-    st.title("Pedido de Kit ou Marmita")
+    st.title("Pedido de Kit Florestal ou Marmita")
 
     # Carregar dados dos motoristas localmente
     with open('dadosMotoristas.json', 'r', encoding='utf-8') as file:
