@@ -17,7 +17,8 @@ if not GITHUB_TOKEN:
 # ---------------------------- Configuração GitHub ---------------------------- #
 GITHUB_USER = "Scsant"           # Nome de usuário do GitHub
 REPO_NAME = "pedidosMotoristas"  # Nome do repositório
-ARQUIVO_GITHUB = "pedidos.json"  # Caminho do arquivo no repositório
+ARQUIVO_PEDIDOS = "pedidos.json"  # Arquivo de pedidos
+ARQUIVO_MOTORISTAS = "dadosMotoristas.json"  # Arquivo de motoristas
 
 # ---------------------------- Dados fornecidos ---------------------------- #
 turno = 'A, B, C'
@@ -40,28 +41,32 @@ def conectar_github():
     repo = g.get_user(GITHUB_USER).get_repo(REPO_NAME)
     return repo
 
-def carregar_pedidos_github():
+def carregar_json_github(arquivo):
     repo = conectar_github()
-    contents = repo.get_contents(ARQUIVO_GITHUB)
-    return json.loads(contents.decoded_content.decode())
+    contents = repo.get_contents(arquivo)
+    return json.loads(contents.decoded_content.decode()), contents
 
-def salvar_pedidos_github(pedidos):
+def salvar_json_github(arquivo, dados, contents):
     repo = conectar_github()
-    contents = repo.get_contents(ARQUIVO_GITHUB)
     repo.update_file(
         contents.path,
-        "Atualização de pedidos via Streamlit",
-        json.dumps(pedidos, ensure_ascii=False, indent=4),
+        f"Atualização do arquivo {arquivo} via Streamlit",
+        json.dumps(dados, ensure_ascii=False, indent=4),
         contents.sha
     )
 
+def adicionar_motorista_github(novo_motorista):
+    motoristas, contents = carregar_json_github(ARQUIVO_MOTORISTAS)
+    motoristas.append(novo_motorista)
+    salvar_json_github(ARQUIVO_MOTORISTAS, motoristas, contents)
+
 def adicionar_pedido_github(pedido):
-    pedidos = carregar_pedidos_github()
+    pedidos, contents = carregar_json_github(ARQUIVO_PEDIDOS)
     pedidos.append(pedido)
-    salvar_pedidos_github(pedidos)
+    salvar_json_github(ARQUIVO_PEDIDOS, pedidos, contents)
 
 def limpar_pedidos_github():
-    salvar_pedidos_github([])
+    salvar_json_github(ARQUIVO_PEDIDOS, [], carregar_json_github(ARQUIVO_PEDIDOS)[1])
 
 def gerar_excel(df):
     buffer = BytesIO()
@@ -84,8 +89,7 @@ pagina = st.sidebar.selectbox("Escolha uma opção:", ["Área do Motorista", "Á
 if pagina == "Área do Motorista":
     st.title("Pedido de Kit ou Marmita")
 
-    with open('dadosMotoristas.json', 'r', encoding='utf-8') as file:
-        dados_motoristas = json.load(file)
+    motoristas, motoristas_contents = carregar_json_github(ARQUIVO_MOTORISTAS)
 
     matricula = st.text_input("Digite sua matrícula (sem pontos ou vírgulas):")
     turno_selecionado = st.selectbox("Selecione o turno:", turnos_list)
@@ -95,23 +99,23 @@ if pagina == "Área do Motorista":
         matricula_formatada = ''.join(filter(str.isdigit, matricula))
 
         motorista = next(
-            (m for m in dados_motoristas if converter_matricula(m['Matrícula']) == int(matricula_formatada)), None
+            (m for m in motoristas if converter_matricula(m['Matrícula']) == int(matricula_formatada)), None
         )
 
         if motorista:
             st.write(f"**Nome:** {motorista['Nome']}")
-            st.write(f"**Frota:** {motorista['Frota']}")
-            st.write(f"**Equipe:** {motorista['Equipe']}")
+            st.write(f"**Frota:** {motorista.get('Frota', 'N/A')}")
+            st.write(f"**Equipe:** {motorista.get('Equipe', 'N/A')}")
 
             opcao = st.selectbox("Escolha seu pedido:", ["Kit Florestal", "Marmita"])
 
             if st.button("Enviar Pedido"):
                 pedido = {
                     "Data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "Matrícula": converter_matricula(motorista['Matrícula']),
+                    "Matrícula": str(int(converter_matricula(motorista['Matrícula']))),
                     "Nome": motorista['Nome'],
-                    "Frota": motorista['Frota'],
-                    "Equipe": motorista['Equipe'],
+                    "Frota": motorista.get('Frota'),
+                    "Equipe": motorista.get('Equipe'),
                     "Turno": turno_selecionado,
                     "Horário": horario_selecionado,
                     "Pedido": opcao
@@ -122,8 +126,31 @@ if pagina == "Área do Motorista":
                     st.success("✅ Pedido registrado com sucesso no GitHub!")
                 except Exception as e:
                     st.error(f"❌ Erro ao salvar pedido no GitHub: {e}")
+
         else:
-            st.error("Matrícula não encontrada ou inválida. Verifique se digitou corretamente.")
+            st.warning("🚨 Matrícula não encontrada! Por favor, faça seu cadastro.")
+            with st.form("cadastro_motorista"):
+                nome = st.text_input("Nome completo:")
+                frota = st.text_input("Frota (opcional):", placeholder="Ex: Frota Leste")
+                equipe = st.text_input("Equipe (opcional):", placeholder="Ex: BTF5")
+                submit_cadastro = st.form_submit_button("Cadastrar")
+
+                if submit_cadastro:
+                    if nome.strip():
+                        novo_motorista = {
+                            "Nome": nome.strip().upper(),
+                            "Frota": frota.strip() if frota else None,
+                            "Equipe": equipe.strip() if equipe else None,
+                            "Matrícula": float(matricula_formatada)
+                        }
+
+                        try:
+                            adicionar_motorista_github(novo_motorista)
+                            st.success("✅ Cadastro realizado com sucesso!")
+                        except Exception as e:
+                            st.error(f"❌ Erro ao cadastrar motorista no GitHub: {e}")
+                    else:
+                        st.error("❌ O nome é obrigatório para o cadastro!")
 
 # ---------------------------- Área Restrita (Analistas) ---------------------------- #
 elif pagina == "Área Restrita (Analistas)":
@@ -134,7 +161,7 @@ elif pagina == "Área Restrita (Analistas)":
 
     if senha == senha_correta:
         try:
-            pedidos = carregar_pedidos_github()
+            pedidos, _ = carregar_json_github(ARQUIVO_PEDIDOS)
 
             if pedidos:
                 df = pd.DataFrame(pedidos)
