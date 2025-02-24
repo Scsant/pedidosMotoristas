@@ -198,5 +198,15 @@
         "Turno": "A",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 21:43:06",
+        "Matrícula": "37016802",
+        "Nome": "BRUNO JOSE RAVAGIO",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
