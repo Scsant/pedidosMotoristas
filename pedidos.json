@@ -8,5 +8,15 @@
         "Turno": "C",
         "Horário": "14:00 AS 2:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 09:17:11",
+        "Matrícula": 37012246,
+        "Nome": "MARCO TULIO SOARES DE CAMPOS",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF5",
+        "Turno": "A",
+        "Horário": "20:00 AS 08:00",
+        "Pedido": "Marmita"
     }
 ]
