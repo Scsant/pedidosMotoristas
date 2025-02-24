@@ -208,5 +208,15 @@
         "Turno": "C",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 22:23:57",
+        "Matrícula": "37013724",
+        "Nome": "MARCELO JOAQUIM",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
