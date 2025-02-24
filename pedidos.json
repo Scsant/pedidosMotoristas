@@ -138,5 +138,15 @@
         "Turno": "B",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 18:56:40",
+        "Matrícula": "37020301",
+        "Nome": "MARCELO DIVINO DA COSTA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "18:00 AS 06:00",
+        "Pedido": "Marmita"
     }
 ]
