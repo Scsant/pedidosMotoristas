@@ -188,5 +188,15 @@
         "Turno": "C",
         "Horário": "18:00 AS 06:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 20:38:45",
+        "Matrícula": "37008088",
+        "Nome": "LUCIANO RAIMUNDO NUNES",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Kit Florestal"
     }
 ]
