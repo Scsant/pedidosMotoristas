@@ -178,5 +178,15 @@
         "Turno": "B",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 20:06:11",
+        "Matrícula": "37018503",
+        "Nome": "ELDER DE OLIVEIRA SILVA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "18:00 AS 06:00",
+        "Pedido": "Kit Florestal"
     }
 ]
