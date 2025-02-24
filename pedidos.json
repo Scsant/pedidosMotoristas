@@ -248,5 +248,15 @@
         "Turno": "A",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 22:46:51",
+        "Matrícula": "37019878",
+        "Nome": "EDISON BEZERRA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Marmita"
     }
 ]
