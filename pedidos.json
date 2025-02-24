@@ -128,5 +128,15 @@
         "Turno": "B",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 18:47:10",
+        "Matrícula": "37019967",
+        "Nome": "RICARDO COSTA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "B",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Marmita"
     }
 ]
