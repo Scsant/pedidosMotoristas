@@ -108,5 +108,15 @@
         "Turno": "C",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 18:37:19",
+        "Matrícula": "37019882",
+        "Nome": "EDSON DE SOUZA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Marmita"
     }
 ]
