@@ -28,5 +28,15 @@
         "Turno": "C",
         "Horário": "18:00 AS 06:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 14:31:29",
+        "Matrícula": 37009201,
+        "Nome": "SÓCRATES LUIZ DOS SANTOS",
+        "Frota": "Frota oeste",
+        "Equipe": "BTF 5",
+        "Turno": "A",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
