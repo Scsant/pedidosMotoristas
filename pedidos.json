@@ -148,5 +148,15 @@
         "Turno": "C",
         "Horário": "18:00 AS 06:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 19:00:11",
+        "Matrícula": "37018079",
+        "Nome": "TIAGO GOMES ARAUJO",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
