@@ -28,5 +28,15 @@
         "Turno": "B",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 18:08:33",
+        "Matrícula": "37019316",
+        "Nome": "ANDRE SIGNORELLI",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Marmita"
     }
 ]
