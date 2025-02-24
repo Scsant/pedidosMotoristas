@@ -68,5 +68,15 @@
         "Turno": "A",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 18:22:02",
+        "Matrícula": "37019135",
+        "Nome": "FERNANDA REGINALDO ROSA DIAS DOS SANTOS ",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
