@@ -158,5 +158,15 @@
         "Turno": "C",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 19:12:09",
+        "Matrícula": "37007411",
+        "Nome": "GIVANILDO DE OLIVEIRA PEDROZA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "B",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
