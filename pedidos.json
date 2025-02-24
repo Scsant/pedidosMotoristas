@@ -228,5 +228,15 @@
         "Turno": "C",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 22:40:47",
+        "Matrícula": "37008971",
+        "Nome": "MARCOS ANTONIO GRASSI",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
