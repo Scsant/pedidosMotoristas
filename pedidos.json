@@ -58,5 +58,15 @@
         "Turno": "A",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 18:20:35",
+        "Matrícula": "37019527",
+        "Nome": "VIVIANE CRISTINA BARBOZA BATISTA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Kit Florestal"
     }
 ]
