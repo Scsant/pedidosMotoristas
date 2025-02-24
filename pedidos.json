@@ -88,5 +88,15 @@
         "Turno": "B",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 18:30:05",
+        "Matrícula": "37015097",
+        "Nome": "JOÃO PEDRO FONSECA SPADOTTO",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "20:00 AS 08:00",
+        "Pedido": "Kit Florestal"
     }
 ]
