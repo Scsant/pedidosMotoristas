@@ -98,5 +98,15 @@
         "Turno": "A",
         "Horário": "20:00 AS 08:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 18:32:21",
+        "Matrícula": "37000918",
+        "Nome": "PAULO SERGIO DA SILVA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Marmita"
     }
 ]
