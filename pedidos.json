@@ -78,5 +78,15 @@
         "Turno": "C",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-24 18:26:04",
+        "Matrícula": "37015087",
+        "Nome": "AGUINALDO APARECIDO JUSTO",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "B",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Kit Florestal"
     }
 ]
