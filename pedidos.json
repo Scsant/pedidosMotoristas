@@ -258,5 +258,15 @@
         "Turno": "C",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 22:54:18",
+        "Matrícula": "37006788",
+        "Nome": "DIOGENES ALVES DE ARRUDA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "B",
+        "Horário": "20:00 AS 08:00",
+        "Pedido": "Kit Florestal"
     }
 ]
