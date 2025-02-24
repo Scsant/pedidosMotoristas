@@ -48,5 +48,15 @@
         "Turno": "B",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 18:15:33",
+        "Matrícula": "37006793",
+        "Nome": "LUCAS RUEDA DOS SANTOS",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Kit Florestal"
     }
 ]
