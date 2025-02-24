@@ -22,5 +22,15 @@
         "Frota": "Frota Leste",
         "Equipe": "BTF5",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-24 09:14:28",
+        "Matrícula": 37018036,
+        "Nome": "PAULO DOS SANTOS ROSA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF5",
+        "Turno": "B",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Marmita"
     }
 ]
