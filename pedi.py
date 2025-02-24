@@ -1,4 +1,3 @@
-import streamlit as st
 import json
 import pandas as pd
 from datetime import datetime
@@ -6,36 +5,46 @@ from io import BytesIO
 from github import Github
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
-# Carregar variáveis do .env
+# ---------------------------- Carregar variáveis do .env ---------------------------- #
 load_dotenv()
-
-# Pega o token da variável de ambiente
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 if not GITHUB_TOKEN:
     raise ValueError("❌ Token do GitHub não encontrado. Verifique o arquivo .env.")
+
 # ---------------------------- Configuração GitHub ---------------------------- #
-  # Insira seu token pessoal aqui
 GITHUB_USER = "Scsant"           # Nome de usuário do GitHub
 REPO_NAME = "pedidosMotoristas"  # Nome do repositório
 ARQUIVO_GITHUB = "pedidos.json"  # Caminho do arquivo no repositório
 
-# ---------------------------- Funções GitHub ---------------------------- #
+# ---------------------------- Dados fornecidos ---------------------------- #
+turno = 'A, B, C'
+horario = "06:00 AS 18:00, 08:00 AS 20:00, 10:00 AS 22:00, 12:00 AS 00:00, 14:00 AS 2:00"
 
-# Conectar ao repositório
+turnos_list = [t.strip() for t in turno.split(',')]
+horarios_list = [h.strip() for h in horario.split(',')]
+
+# Função para inverter os horários
+def inverter_horario(h):
+    inicio, _, fim = h.partition(' AS ')
+    return f"{fim} AS {inicio}"
+
+horarios_invertidos = [inverter_horario(h) for h in horarios_list]
+horarios_completos = horarios_list + horarios_invertidos
+
+# ---------------------------- Funções GitHub ---------------------------- #
 def conectar_github():
     g = Github(GITHUB_TOKEN)
     repo = g.get_user(GITHUB_USER).get_repo(REPO_NAME)
     return repo
 
-# Carregar pedidos direto do GitHub
 def carregar_pedidos_github():
     repo = conectar_github()
     contents = repo.get_contents(ARQUIVO_GITHUB)
     return json.loads(contents.decoded_content.decode())
 
-# Salvar pedidos direto no GitHub
 def salvar_pedidos_github(pedidos):
     repo = conectar_github()
     contents = repo.get_contents(ARQUIVO_GITHUB)
@@ -46,17 +55,14 @@ def salvar_pedidos_github(pedidos):
         contents.sha
     )
 
-# Adicionar novo pedido e salvar no GitHub
 def adicionar_pedido_github(pedido):
     pedidos = carregar_pedidos_github()
     pedidos.append(pedido)
     salvar_pedidos_github(pedidos)
 
-# Limpar pedidos no GitHub
 def limpar_pedidos_github():
     salvar_pedidos_github([])
 
-# Gerar arquivo Excel
 def gerar_excel(df):
     buffer = BytesIO()
     with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
@@ -64,7 +70,6 @@ def gerar_excel(df):
     buffer.seek(0)
     return buffer
 
-# ---------------------------- Função segura para matrícula ---------------------------- #
 def converter_matricula(valor):
     try:
         return int(float(valor))
@@ -72,19 +77,19 @@ def converter_matricula(valor):
         return None
 
 # ---------------------------- Streamlit ---------------------------- #
-
 st.sidebar.title("Menu")
 pagina = st.sidebar.selectbox("Escolha uma opção:", ["Área do Motorista", "Área Restrita (Analistas)"])
 
 # ---------------------------- Área do Motorista ---------------------------- #
 if pagina == "Área do Motorista":
-    st.title("Pedido de Kit Florestal ou Marmita")
+    st.title("Pedido de Kit ou Marmita")
 
-    # Carregar dados dos motoristas localmente
     with open('dadosMotoristas.json', 'r', encoding='utf-8') as file:
         dados_motoristas = json.load(file)
 
     matricula = st.text_input("Digite sua matrícula (sem pontos ou vírgulas):")
+    turno_selecionado = st.selectbox("Selecione o turno:", turnos_list)
+    horario_selecionado = st.selectbox("Selecione o horário (original ou invertido):", horarios_completos)
 
     if matricula:
         matricula_formatada = ''.join(filter(str.isdigit, matricula))
@@ -107,6 +112,8 @@ if pagina == "Área do Motorista":
                     "Nome": motorista['Nome'],
                     "Frota": motorista['Frota'],
                     "Equipe": motorista['Equipe'],
+                    "Turno": turno_selecionado,
+                    "Horário": horario_selecionado,
                     "Pedido": opcao
                 }
 
@@ -123,7 +130,7 @@ elif pagina == "Área Restrita (Analistas)":
     st.title("Área Restrita - Analistas")
 
     senha = st.text_input("Digite a senha de acesso:", type="password")
-    senha_correta = "analista123"  # Altere conforme necessário
+    senha_correta = "analista123"
 
     if senha == senha_correta:
         try:
