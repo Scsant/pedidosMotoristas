@@ -268,5 +268,15 @@
         "Turno": "B",
         "Horário": "20:00 AS 08:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-25 00:12:37",
+        "Matrícula": "37015161",
+        "Nome": "LEANDRO ABILE",
+        "Frota": "Frota Oeste",
+        "Equipe": "BTF1",
+        "Turno": "B",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Kit Florestal"
     }
 ]
