@@ -298,5 +298,15 @@
         "Turno": "C",
         "Horário": "18:00 AS 06:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-25 01:33:57",
+        "Matrícula": "37006513",
+        "Nome": "ROGERIO VIEIRA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "18:00 AS 06:00",
+        "Pedido": "Kit Florestal"
     }
 ]
