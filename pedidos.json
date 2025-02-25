@@ -308,5 +308,15 @@
         "Turno": "A",
         "Horário": "18:00 AS 06:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-25 07:27:35",
+        "Matrícula": "37006273",
+        "Nome": "JOSE LUIZ PAGADIGORRIA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "B",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Marmita"
     }
 ]
