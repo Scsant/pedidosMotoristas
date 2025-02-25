@@ -278,5 +278,15 @@
         "Turno": "B",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Kit Florestal"
+    },
+    {
+        "Data": "2025-02-25 00:16:17",
+        "Matrícula": "37017658",
+        "Nome": "LEANDRO APARECIDO MARTINS",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "A",
+        "Horário": "08:00 AS 20:00",
+        "Pedido": "Marmita"
     }
 ]
