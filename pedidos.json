@@ -288,5 +288,15 @@
         "Turno": "A",
         "Horário": "08:00 AS 20:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-02-25 00:42:51",
+        "Matrícula": "37006651",
+        "Nome": "DONIZEI MIRANDA BARBOSA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "C",
+        "Horário": "18:00 AS 06:00",
+        "Pedido": "Kit Florestal"
     }
 ]
