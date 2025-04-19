@@ -318,5 +318,15 @@
         "Turno": "B",
         "Horário": "06:00 AS 18:00",
         "Pedido": "Marmita"
+    },
+    {
+        "Data": "2025-04-19 15:20:28",
+        "Matrícula": "37006643",
+        "Nome": "FABIO FLAVIO DA SILVA",
+        "Frota": "Frota Leste",
+        "Equipe": "BTF1",
+        "Turno": "B",
+        "Horário": "06:00 AS 18:00",
+        "Pedido": "Marmita"
     }
 ]
